@@ -1,0 +1,54 @@
+[
+  {
+    "division": "מוצרי חלב",
+    "product_name":"חלב"
+  },
+  
+  {
+    "division": "מוצרי חלב",
+    "product_name": "חמאה"
+  },
+  {
+    "division": "מוצרי חלב",
+    "product_name": "מעדנים ללינוי"
+  },
+  {
+    "division": "מוצרי חלב",
+    "product_name": "גבינה צהובה עמק "
+  },
+  {
+    "division": "מוצרי חלב",
+    "product_name": "צפתית צוריאל"
+  },
+  {
+    "division": "מוצרי חלב",
+    "product_name": "ביצים"
+  },
+  {
+    "division": "מוצרי חלב",
+    "product_name": "גבינת שמנת"
+  },
+  {
+    "division": "מוצרי חלב",
+    "product_name": "אקטימל"
+  },
+  {
+    "division": "מוצרי בשר",
+    "product_name": "פרגית"
+  },{
+    "division": "מוצרי בשר",
+    "product_name": "בקר"
+  },
+  {
+    "division": "מוצרי בשר",
+    "product_name": "עוף"
+  },
+  {
+    "division": "מוצרי בשר",
+    "product_name": "כבד עוף"
+  },
+  {
+    "division": "אחר",
+    "product_name": "טיטולים"
+  }
+]

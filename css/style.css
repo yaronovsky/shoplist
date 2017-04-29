@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #F2F2F2;
+}
+
+#wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    /*flex-flow: column wrap;*/
+    /*height: 150px;*/
+}
+
+.new_typeahead_div {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row-reverse;
+    /*justify-content: space-between;*/
+    width: 100%;
+}
+
+.freetext_div .freetext:focus {
+    outline: none;
+}
+
+.md-no-sticky{font-size: 3vh;}
+
+input:disabled {
+    opacity: 0.5;
+}
+
+md-input-container input {
+    font-size: 2vh;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    /*border-color: none;*/
+}
+
+
+md-input-container {
+    height: 1px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::-webkit-input-placeholder {
+    font-weight: bolder;
+}
+
+.freetext {
+    align-self: flex-end;
+}
+
+.tile_btn {
+    width: fit-content;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 5vh;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.delete_all {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    border: none;
+    outline: none;
+}
+
+.trash {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+.search_div {
+    display: flex;
+    flex-flow: row wrap;
+    width: 70%;
+    height: fit-content;
+    border: 4px solid purple;
+    border-radius: 5px;
+    background: #b3dced;
+    background: -moz-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #b3dced), color-stop(50%, #29b8e5), color-stop(100%, #bce0ee));
+    background: -webkit-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+    background: -o-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+    background: -ms-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+    background: linear-gradient(to bottom, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=0);
+    margin: 20px auto;
+    direction: rtl;
+}
+
+.outcome {
+    flex-flow: row wrap;
+    height: 40vh;
+    text-align: center;
+    margin: 40px auto;
+    height: fit-content;
+    overflow-y: scroll;
+}
+
+.radios {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-size: 2vh;
+    margin-top: 5px;
+}
+
+.add {
+    margin: 0 auto;
+    flex: 1;
+}
+
+.outcome1 {
+    height: 30px;
+    background: #c8e4fa;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 90%;
+    cursor: move;
+    height: 20%;
+    font-size: 2vh;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: red;
+    /*background: red;*/
+    /*opacity: 0.5;*/
+}
+
+.center {
+    margin: 20px auto;
+    display: block;
+}
+
+.bold {
+    font-weight: bolder
+}
+
+.delete_all:hover {
+    color: red;
+}
+
+#amount {
+    border-radius: 0 10px 0 0;
+    height: 5vh;
+}
+
+.dropdown-menu {
+    width: 100%;
+    position: absolute;
+    z-index: 9999999;
+    margin: 5px auto;
+    display: block;
+    text-align: center;
+
+
+}
+
+.export_list_btn{
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    height: 10%;
+}
+
+.btns_lowest{
+display: flex;
+justify-content: space-around;
+flex-flow: column;
+height: 15%;
+/*align-content: center;*/
+width: 40%;
+}
+.btns_lowest .md-fab{margin: 0 auto;
+font-size: 4vh;
+color: azure;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.active {
+    background: #A4A4A4;
+    border: 2px outset white;
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    list-style: none;
+    box-shadow: 1px 1px #2E2E2E;
+    color: white;
+}
+
+span {
+    flex: 1;
+    display: flex;
+align-items: center;
+justify-content: space-around;
+}
+
+
+
+b,
+strong {
+    color: red;
+}
+
+.dndDragover {
+    color: red;
+}
+
+.dndPlaceholder {
+    background: gray;
+}

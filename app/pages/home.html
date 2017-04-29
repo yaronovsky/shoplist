@@ -1,0 +1,83 @@
+<div id="wrapper">
+
+
+  <div class="searchbox" md-no-float>
+
+    <div class="search_div" layout-gt-sm="row" layout-padding>
+      <md-input-container md-no-float>
+
+        <input ng-disabled="disableDivison" class="coral-inputs" ng-keyup="addToListOnEnter($event)" ng-model="itemChosen" type="text"
+          placeholder="הקלד לחיפוש" input type="text" uib-typeahead="item as item.product_name for  item in data | filter:{product_name:$viewValue}|limitTo:3"
+          typeahead-min-length="1" typeahead-wait-ms="400">
+      </md-input-container>
+      <md-input-container md-no-float>
+
+        <input ng-disabled="disableDivison" ng-keyup="addToListOnEnter($event)" type="number" placeholder="כמות" ng-model="amountCount">
+      </md-input-container>
+      <md-input-container md-no-float>
+
+        <input ng-disabled="disableDivison" class="coral-inputs" ng-keyup="addToListOnEnter($event)" type="text" placeholder="הערות"
+          ng-model="additional" maxlength="12">
+      </md-input-container>
+      <div class="radios">
+        <md-radio-group ng-keyup="addToListOnEnter($event)" ng-model="amountType" ng-disabled="disableDivison">
+          <md-radio-button class="md-primary" name="typeOfItems" value='ק"ג'>ק"ג</md-radio-button>
+
+          <md-radio-button class="md-primary" name="typeOfItems" value='פריטים'>פריטים</md-radio-button>
+        </md-radio-group>
+
+      </div>
+
+      <div class="new_typeahead_div">
+        <div class="btns_search">
+          <md-button class="md-primary md-raised add" ng-click="addToList(13)" ng-disabled="disableDivison">הוסף</md-button>
+          <md-button class="md-primary md-raised add" ng-click="addToList(13)" ng-disabled="!disableDivison"> הוסף למאגר</md-button>
+
+        </div>
+        <md-input-container md-no-float>
+
+          <input type="text" ng-disabled="!disableDivison" ng-model="typeAheadItem" placeholder="שם פריט" ng-keyup="typeAheadListAdd($event)">
+        </md-input-container>
+
+        <md-input-container md-no-float>
+          <input type="text" ng-disabled="!disableDivison" ng-model="division" placeholder="מחלקה" ng-keyup="typeAheadListAdd($event)"
+            uib-typeahead="div as div.division for  div in tdata | filter:$viewValue | limitTo:1" typeahead-min-length="1">
+        </md-input-container>
+        <md-input-container md-no-float>
+
+          <md-checkbox name="name" class="md-primary" ng-model="disableDivison" ng-click="addToListOnClick()">הוסף פריט</md-checkbox>
+        </md-input-container>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="outcome">
+  <div class="outcome1" dnd-draggable="item" ng-repeat="item in itemsArr">
+    <span>{{item.product_name}}</span>
+    <span class="bold"> {{item.additional}}</span>
+    <span class="bold">{{item.amountCount}}</span>
+    <span>{{item.amountType}}</span>
+    <div class="float-left">
+
+      <md-button class=" md-warn" ng-click="onDrop(item)">מחק</md-button>
+    </div>
+  </div>
+</div>
+
+<div class="tile_btn trash" dnd-drop="onDrop(item)" dnd-list="[]"><i class="fa fa-trash"></i>
+  <md-tooltip md-direction="bottom">גרור לפח</md-tooltip>
+</div>
+<div ng-click="showConfirm($event)" class="tile_btn delete_all"><i class="fa fa-minus-circle" aria-hidden="true"></i>
+  <md-tooltip md-direction="bottom">מחק הכל</md-tooltip>
+</div>
+<md- class="search_div btns_lowest">
+  <md-button class="md-primary md-raised export_list_btn" ng-click="goto('/export')">צור רשימה
+    <md-tooltip md-direction="bottom">צור רשימה בדף אחר</md-tooltip>
+  </md-button>
+
+  <md-button class="md-fab md-mini md-primary" ng-click="scrollTop()"><i class="fa fa fa-angle-up"></i>
+    <md-tooltip md-direction="bottom">גלול למעלה</md-tooltip></md-button>
+
+  </div>
