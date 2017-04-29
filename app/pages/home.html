@@ -19,7 +19,7 @@
         <input ng-disabled="disableDivison" class="coral-inputs" ng-keyup="addToListOnEnter($event)" type="text" placeholder="הערות"
           ng-model="additional" maxlength="12">
       </md-input-container>
-      <div class="radios">
+      <div class="radios" ><md-tooltip md-direction="top">בחר סוג כמות</md-tooltip>
         <md-radio-group ng-keyup="addToListOnEnter($event)" ng-model="amountType" ng-disabled="disableDivison">
           <md-radio-button class="md-primary" name="typeOfItems" value='ק"ג'>ק"ג</md-radio-button>
 
@@ -30,8 +30,8 @@
 
       <div class="new_typeahead_div">
         <div class="btns_search">
-          <md-button class="md-primary md-raised add" ng-click="addToList(13)" ng-disabled="disableDivison">הוסף</md-button>
-          <md-button class="md-primary md-raised add" ng-click="addToList(13)" ng-disabled="!disableDivison"> הוסף למאגר</md-button>
+          <md-button class="md-primary md-raised add" ng-click="addToList(13)" ng-disabled="disableDivison">הוסף<md-tooltip md-direction="bottom">הוסף</md-tooltip></md-button>
+          <md-button class="md-primary md-raised add" ng-click="addToList(13)" ng-disabled="!disableDivison"> הוסף למאגר<md-tooltip md-direction="bottom">הוסף למאגר</md-tooltip></md-button>
 
         </div>
         <md-input-container md-no-float>
