@@ -1,63 +1,49 @@
 (function () {
-    var app = angular.module("app");
-    app.controller("export_Ctrl", export_Ctrl);
-    function export_Ctrl($scope,$mdDialog,$location) {
-        $scope.data = localStorage.getItem('data')
-        $scope.sortedData = JSON.parse($scope.data);
-        
-        
-        $scope.status = '  ';
-  $scope.customFullscreen = false;
+  var app = angular.module("app");
+  app.controller("export_Ctrl", export_Ctrl);
+
+  function export_Ctrl($scope, $mdDialog, $location,$anchorScroll) {
+    $scope.data = localStorage.getItem('data')
+    $scope.sortedData = JSON.parse($scope.data);
 
 
-  $scope.showConfirm = function(ev) {
-    var confirm = $mdDialog.confirm()
-          .title('?האם תרצה לחזור לדף הקודם')
-          .textContent('כל הפריטים המסומנים ימחקו')
-          .ariaLabel('Lucky day')
-          .targetEvent(ev)
-          .ok('כן')
-          .cancel('בטל');
+    $scope.status = '  ';
+    $scope.customFullscreen = false;
+    $scope.count = $scope.sortedData.length;
+    $scope.scrollTop = scrollTop;
 
-    $mdDialog.show(confirm).then(function() {
-      $location.path("/")
-    }, function() {
-    });
+
+    $scope.showConfirm = function (ev) {
+      var confirm = $mdDialog.confirm()
+        .title('תרצה לחזור?')
+        .textContent('כל הפריטים המסומנים ימחקו')
+        .ariaLabel('Lucky day')
+        .targetEvent(ev)
+        .ok('כן')
+        .cancel('בטל');
+
+      $mdDialog.show(confirm).then(function () {
+        $location.path("/")
+      }, function () {});
+    };
+
+
+    function scrollTop() {
+      $anchorScroll();
+    };
+
+
+
+
+
+
+
+
+
+
+    console.log($scope.sortedData)
+
   };
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // function sort() {
-    //     $scope.sortedData.sort(function(a,b){
-    //         var nameA=a.division;
-    //         var nameB=b.division;
-    //         if(nameA<nameB){
-    //             return -1;
-    //         }
-    //         if(nameA>nameB){
-    //             return 1;
-    //         }
-    //         return 0;
-    //     })
-    // };
-    // sort();
-//    var a=$scope.sortedData.map(function(elem){
-//     return [elem.division];
-// }).join(",");
-console.log($scope.sortedData)
-
-            };
 
 
 }())

@@ -5,6 +5,20 @@
 
 
     function main_Shop_Ctrl($http, $scope, $anchorScroll, $location, $mdDialog) {
+        
+        $scope.addToList = addToList;
+        $scope.goto = goto;
+        $scope.typeAheadListAdd = typeAheadListAdd;
+        $scope.getlist = getlist;
+        $scope.deleteAll = deleteAll;
+        $scope.addToListOnEnter = addToListOnEnter;
+        $scope.addToListOnClick = addToListOnClick;
+        $scope.CallTypeAheadOnClick = CallTypeAheadOnClick;
+        $scope.CallTypeAheadOnKey=CallTypeAheadOnKey;
+        $scope.showConfirm=showConfirm;
+
+
+
         getlist();
         isThere('data');
 
@@ -32,16 +46,10 @@
         }
 
 
-        $scope.addToList = addToList;
-        $scope.goto = goto;
-        $scope.typeAheadListAdd = typeAheadListAdd;
-        $scope.getlist = getlist;
-        $scope.deleteAll = deleteAll;
-        $scope.addToListOnEnter = addToListOnEnter;
-        $scope.addToListOnClick = addToListOnClick;
-        $scope.showConfirm = function (ev) {
+
+        function showConfirm(ev) {
             var confirm = $mdDialog.confirm()
-                .title('?האם תרצה למחוק הכל')
+                .title('האם תרצה למחוק הכל?')
                 .textContent('אין דרך לשחזר את הנתונים')
                 .ariaLabel('Lucky day')
                 .targetEvent(ev)
@@ -85,17 +93,17 @@
 
 
 
-        function typeAheadListAdd($event) {
-            if ($event.keyCode == 13 && $scope.division && $scope.typeAheadItem) {
-                if ($scope.data == undefined || null) {
-                    getlist();
-                };
+        function typeAheadListAdd() {
+            // if ($event.keyCode == 13 && $scope.division && $scope.typeAheadItem) {
+            if ($scope.data == undefined || null) {
+                getlist();
+                }
 
                 $scope.data = JSON.parse(localStorage.getItem('typeAheadList'))
                 if (search($scope.data, "product_name", $scope.typeAheadItem)) {
                     $scope.division = "";
                     $scope.typeAheadItem = "";
-                    $scope.disableDivison=false;
+                    $scope.disableDivison = false;
                     return;
                 }
                 if (typeof $scope.division == "string") {
@@ -111,7 +119,7 @@
 
             }
 
-        };
+        // };
 
         function typeahedObjAssign(division) {
             var currentObj = Object.assign(division, {
@@ -137,10 +145,22 @@
             };
         }
 
+        function CallTypeAheadOnKey($event) {
+            if ($event.keyCode == 13 && $scope.division && $scope.typeAheadItem)
+                typeAheadListAdd()
+
+            
+        }
+
+        function CallTypeAheadOnClick() {
+            if ($scope.division && $scope.typeAheadItem) {
+                typeAheadListAdd()
+
+            }
+        }
 
 
-        function addToList($event) {
-
+        function addToList() {
 
 
             if ($scope.additional == undefined) {

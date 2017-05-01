@@ -1,8 +1,19 @@
- <md-subheader class="md-no-sticky text-center" ng-repeat="(key,value) in sortedData| groupBy: 'division'">{{key}}
+ <md-subheader class="md-no-sticky text-center" ng-repeat="(key,value) in sortedData| groupBy: 'division'">
+   
+   <p class="bold">
 
-  <md-list-item ng-repeat="prod in value" ng-class="{strikethrough:prod.got}">
-    {{ prod.product_name}}
-    <md-checkbox aria-label="a" class="md-secondary" ng-model="prod.got"></md-checkbox>
+   {{key}}
+   </p>
+
+  <md-list-item ng-repeat="prod in value" ng-class="{strikethrough:prod.got}" class="sorted_list">
+   
+
+   <span> {{ prod.product_name}}  </span> 
+    <span>{{prod.additional}}</span>
+    <span>{{prod.amountCount}}</span>
+    <span>{{prod.amountType}}</span>
+   
+    <md-checkbox aria-label="a" class="md-secondary checkbox_sorted" ng-model="prod.got"></md-checkbox>
   </md-list-item>
 
   <md-divider></md-divider>
@@ -14,5 +25,10 @@
 
 
 
-
+<div class="btns_export">
+  
 <md-button ng-click="showConfirm($event)" class="md-primary md-raised center">back</md-button>
+<md-button class="md-fab md-mini md-primary" ng-click="scrollTop()"><i class="fa fa fa-angle-up"></i>
+    <md-tooltip md-direction="bottom">גלול למעלה</md-tooltip>
+  </md-button>
+</div>
