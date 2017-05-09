@@ -1,2 +1,2 @@
-# shoplist by Eli Yaronovsky
+# Shop-List by Eli Yaronovsky
 Frontend Project
